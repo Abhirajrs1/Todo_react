@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Heading from './components/Heading'
+import Heading from './components/Heading' 
 function App() {
 
   return (
