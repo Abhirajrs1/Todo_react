@@ -1,0 +1,126 @@
+body{
+    background-color: #1f1e1e;
+    color: white;
+    overflow: hidden;
+}
+h1{
+    text-align: center;
+}
+
+.Wrapper{
+    background-color:rgb(44, 42, 42);
+    padding: 2%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 5px 7px rgb(58, 31, 31);
+}
+.todo_input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1% solid gray;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.input_items{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 25px;
+
+}
+
+.input_items label{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input_items input{
+    padding: 8px;
+    border: none;
+    width: 250px;
+}
+.input_items input:focus{
+outline: none;
+outline:2px solid rgb(0, 230, 122)
+}
+
+.primarybutton{
+    background-color:rgb(0, 230, 122);
+    color: white;
+    border: none;
+    border-radius: 0%;
+    margin-top: 25px;
+    padding: 7px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.primarybutton:hover{
+    background-color:rgb(4, 196, 106);
+
+
+}
+.todo_list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.todo_list_items{
+    background-color: rgb(57, 55, 55);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 5px rgb(43,42,42);
+}
+.todo_list_items h3{
+    font-size: 25px;
+    color: rgb(0,230,122);
+    font-weight: bold;
+    margin: 0;
+}
+.todo_list_items p{
+    font-size: 14px;
+    color: rgb(161,161,161);
+    margin-top: 0px;
+}
+.icon{
+    font-size: 25px;
+    cursor: pointer;
+}
+.icon:hover{
+    color: red;
+}
+.check-icon{
+    font-size: 25px;
+    cursor: pointer;
+    margin-left: 10px;
+    color:rgb(0,230,122)
+}
+.check-icon:hover{
+    color:rgb(2, 76, 42)
+}
+.secondaryButton{
+    background-color:rgb(83, 84, 84);
+    color: white;
+    border: none;
+    border-radius: 0%;
+    margin-top: 25px;
+    padding: 7px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.active{
+    background-color:rgb(5, 132, 73);
+}
+
