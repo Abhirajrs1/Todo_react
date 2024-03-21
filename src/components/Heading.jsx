@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 import './Heading.css'
@@ -9,20 +9,23 @@ function Heading() {
     const [newDescription, setNewDescription] = useState('')
     const [completedTodos, setCompletedTodos] = useState([])
 
-    const todo = () => {
+    const todo = useCallback(() => {
         setIsCompleteScreen(false)
-    }
-    const completed = () => {
-        setIsCompleteScreen(true)
-    }
-    const setTitle = (e) => {
-        setNewTitle(e.target.value)
-    }
-    const setDescription = (e) => {
-        setNewDescription(e.target.value)
-    }
+    },[])
 
-    const handleAddTodo = () => {
+    const completed = useCallback(() => {
+        setIsCompleteScreen(true)
+    },[])
+
+    const setTitle = useCallback((e) => {
+        setNewTitle(e.target.value)
+    },[])
+
+    const setDescription =useCallback((e) => {
+        setNewDescription(e.target.value)
+    },[]) 
+
+    const handleAddTodo = useCallback(() => {
         let newTodo = {
             title: newTitle,
             description: newDescription
@@ -35,14 +38,15 @@ function Heading() {
         setNewDescription("")
 
     }
+    ,[toDo,newTitle,newDescription])
 
-    const handleDeleteTodo = (index) => {
+    const handleDeleteTodo = useCallback((index) => {
         const updatedTodoArray = toDo.filter((_, i) => i !== index)
         setToDo(updatedTodoArray)
         localStorage.setItem('todolist', JSON.stringify(updatedTodoArray))
-    }
+    },[toDo])
 
-    const handleComplete = (index) => {
+    const handleComplete = useCallback((index) => {
         let now = new Date()
         let dd = now.getDate()
         let mm = now.getMonth() + 1
@@ -60,12 +64,13 @@ function Heading() {
         setCompletedTodos(updatedCompleteArr)
         handleDeleteTodo(index)
         localStorage.setItem('completedTodos', JSON.stringify(updatedCompleteArr))
-    }
-    const handleDeleteCompletedTodo = (index) => {
+    },[toDo,completedTodos,handleDeleteTodo])
+
+    const handleDeleteCompletedTodo = useCallback((index) => {
         let reducedTodoArray = completedTodos.filter((_, i) => i !== index);
         setCompletedTodos(reducedTodoArray);
         localStorage.setItem('completedTodos', JSON.stringify(reducedTodoArray));
-    }
+    },[completedTodos])
 
    
     useEffect(() => {
